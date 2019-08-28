@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Resep</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let resep of resepList">
+      <ion-avatar slot="start" (click)="detail(resep.id)">
+        <img src="{{resep.img}}">
+      </ion-avatar>
+      <ion-label (click)="detail(resep.id)">{{resep.title}}</ion-label>
+      <ion-button slot="end" (click)="delete(resep.id)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

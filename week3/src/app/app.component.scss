@@ -1,0 +1,16 @@
+.profile{
+    display: flex;
+    flex-flow: column;
+    padding: 1em;
+    img{
+        border-radius: 50%;
+        height: 3.5em; width: 3.5em;
+        background-color: rgba($color: grey, $alpha: 0.5);
+        margin-bottom: 1em;
+    }
+    span{
+        margin-top: 0.3em;
+        font-size: 0.9em;
+        font-weight: bold;
+    }
+}
