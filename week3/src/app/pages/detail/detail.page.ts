@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 
 import { DapurService } from './../../services/dapur.service'
@@ -10,14 +11,20 @@ import { DapurService } from './../../services/dapur.service'
 })
 export class DetailPage implements OnInit {
   
+  id:string;
   resep:any
 
-  constructor(private activatedRoute: ActivatedRoute, private dapur: DapurService) {
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.resep = this.dapur.getResep(id);
+  constructor(public navCtrl: NavController, private activatedRoute: ActivatedRoute, private dapur: DapurService) {
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.resep = this.dapur.getResep(this.id);
   }
 
   ngOnInit() {
+  }
+
+  delete(){
+    this.dapur.deleteresep(this.id);
+    this.navCtrl.navigateBack('resep');
   }
 
 }

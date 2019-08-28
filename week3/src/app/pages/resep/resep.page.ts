@@ -15,12 +15,14 @@ export class ResepPage implements OnInit {
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public toastCtrl: ToastController, private dapur: DapurService) { }
 
   ngOnInit() {
+  }
+
+  ionViewDidEnter(){
     this.resepList = this.dapur.getResepList();
   }
 
   detail(id:string){
     console.log(this.dapur.getResep(id));
-
     this.navCtrl.navigateForward('resep/'+id)
   }
 
