@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref=""></ion-back-button>
+      </ion-buttons>
+    <ion-title>Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="resep">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="{{resep.img}}">
+      </ion-avatar>
+      <ion-label>{{resep.title}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="resep && resep.ingredients">
+    <ion-item *ngFor="let ingredient of resep.ingredients">
+      <ion-label>{{ingredient}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
