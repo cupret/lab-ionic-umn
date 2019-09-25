@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>UMN UKM</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ukm" *ngFor="let ukm of ukmList">
+    <ion-card-title>{{ukm.title}}</ion-card-title>
+    <ion-card-subtitle>{{ukm.desc}}</ion-card-subtitle>
+    <div class="footer">
+      <ion-button (click)="joinUKM(ukm.id)" fill="outline">Join</ion-button>
+    </div>
+  </ion-card>
+</ion-content>

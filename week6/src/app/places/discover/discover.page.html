@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Discover</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2" text-center>
+        <ion-card (click)="placeDetail(places[0].id)">
+          <ion-card-header>
+            <ion-card-title>{{places[0].title}}</ion-card-title>
+            <ion-card-subtitle>{{places[0].price | currency}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-img [src]="places[0].img_url"></ion-img>
+          <ion-card-content>{{places[0].desc}}</ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2" text-center>
+        <ion-list>
+          <ion-item *ngFor="let place of places.slice(1)" (click)="placeDetail(place.id)">
+            <ion-thumbnail slot="start">
+              <ion-img [src]="place.img_url"></ion-img>
+            </ion-thumbnail>
+            <ion-label>
+              <p>{{place.title}}</p>
+              <p>{{place.desc}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

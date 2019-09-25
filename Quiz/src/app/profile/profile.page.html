@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>UMN UKM</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="profile">
+    <ion-avatar>
+        <ion-img src="assets/img/profile.png"></ion-img>
+      <!-- <ion-icon name="person"></ion-icon> -->
+    </ion-avatar>
+    <ion-text>Joshua Axel Wijaya</ion-text>
+    <ion-text>00000013351</ion-text>
+  </div>
+  <div class="ukm-list">
+    <div class="title">
+      <ion-text>My UKMS</ion-text>
+    </div>
+    <ion-item-sliding *ngFor="let ukm of ukmList">
+      <ion-item-options>
+        <ion-item-option (click)="exitUKM(ukm.id)" style="--background: red;">
+          <ion-icon name="trash" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-text>{{ukm.title}}</ion-text>
+      </ion-item>
+    </ion-item-sliding>
+    <div *ngIf="ukmList.length == 0" style="width: 100%; text-align: center;">
+      <ion-text>Belum join UKM.</ion-text>
+    </div>
+  </div>
+</ion-content>
